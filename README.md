@@ -20,3 +20,19 @@ Because Fish shell does [wildcards globbing](https://fishshell.com/docs/current/
 - `!!:` Translate natural language to arbitrary shell commands
 - `git!`: Translate natural language to Git commands
 - `gh!`: Translate natural language to GitHub CLI commands
+
+### Use your own aliases
+
+If you don't want the default aliases, what you can do now is to put these in your config.fish:
+
+```
+functions -e !! git! gh!
+```
+
+And use your own aliases, for example, to use `,`:
+
+```
+alias , __copilot_what-the-shell
+alias ,g __copilot_git-assist
+alias ,gh __copilot_gh-assist
+```
