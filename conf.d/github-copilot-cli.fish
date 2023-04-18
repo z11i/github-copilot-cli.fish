@@ -1,9 +1,20 @@
+function __fish_add_history
+    begin
+        echo -- '- cmd:' (
+            string replace -- \n \\n (string join ' ' $argv) | string replace \\ \\\\
+        )
+        and date +' when: %s'
+    end >>$__fish_user_data_dir/fish_history
+    and history merge
+end
+
 function __copilot_what-the-shell
     set TMPFILE (mktemp)
     trap 'rm -f $TMPFILE' EXIT
     if github-copilot-cli what-the-shell $argv --shellout $TMPFILE
         if test -e $TMPFILE
             set FIXED_CMD (cat $TMPFILE)
+            __fish_add_history $FIXED_CMD
             eval $FIXED_CMD
         else
             echo "Apologies! Extracting command failed"
@@ -20,6 +31,7 @@ function __copilot_git-assist
     if github-copilot-cli git-assist $argv --shellout $TMPFILE
         if test -e $TMPFILE
             set FIXED_CMD (cat $TMPFILE)
+            __fish_add_history $FIXED_CMD
             eval $FIXED_CMD
         else
             echo "Apologies! Extracting command failed"
@@ -36,6 +48,7 @@ function __copilot_gh-assist
     if github-copilot-cli gh-assist $argv --shellout $TMPFILE
         if test -e $TMPFILE
             set FIXED_CMD (cat $TMPFILE)
+            __fish_add_history $FIXED_CMD
             eval $FIXED_CMD
         else
             echo "Apologies! Extracting command failed"
