@@ -1,8 +1,10 @@
 function __fish_add_history
+    set -l cmd (string replace -- \n \\n (string join ' ' $argv) | string replace \\ \\\\)
+    if test -z $cmd
+        return
+    end
     begin
-        echo -- '- cmd:' (
-            string replace -- \n \\n (string join ' ' $argv) | string replace \\ \\\\
-        )
+        echo -- '- cmd:' $cmd
         and date +' when: %s'
     end >>$__fish_user_data_dir/fish_history
     and history merge
