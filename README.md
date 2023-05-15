@@ -17,7 +17,7 @@ Copy the file `conf.d/github-copilot-cli.fish` to `$__fish_config_dir/conf.d/` o
 
 Because Fish shell does [wildcards globbing](https://fishshell.com/docs/current/language.html#wildcards-globbing), the default aliases shipped with the CLI do not play well. Therefore I changed `?` to `!` for all aliases.
 
-- `!!:` Translate natural language to arbitrary shell commands
+- `!!`: Translate natural language to arbitrary shell commands
 - `git!`: Translate natural language to Git commands
 - `gh!`: Translate natural language to GitHub CLI commands
 
