@@ -13,7 +13,7 @@ end
 function __copilot_what-the-shell
     set TMPFILE (mktemp)
     trap 'rm -f $TMPFILE' EXIT
-    if github-copilot-cli what-the-shell $argv --shellout $TMPFILE
+    if github-copilot-cli what-the-shell 'in the fish shell,' $argv --shellout $TMPFILE
         if test -e $TMPFILE
             set FIXED_CMD (cat $TMPFILE)
             __fish_add_history $FIXED_CMD
