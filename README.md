@@ -1,4 +1,8 @@
 # github-copilot-cli.fish
+
+> [!IMPORTANT]  
+> This plugin is obsolete as GitHub is sunsetting Copilot CLI: https://gist.github.com/idan/325676d192b32f169b032fde2d866c2c#github-next--technical-preview-sunsets
+
 Make GitHub Copilot CLI's alias work for Fish shell. The current Copilot CLI in beta only supports bash-like syntax.
 
 ## How to install
